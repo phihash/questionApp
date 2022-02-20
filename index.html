@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Googleフォント読み込み -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="src/favicon.PNG">
+  <title>QuestionBox</title>
+  <style>
+    .header{
+      height: 70px;
+    }
+    .site-title{
+      font-size:1.6rem;
+      font-family: 'Lato', sans-serif;
+    }
+    .canvas-container{
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="site-title">QuestionBox</h1>
+  </header>
+  <input type="text" id="name">
+  <input type="text" id="comment">
+  <button type="submit" id="submitButton">送信</button>
+  <button id="showButton">表示</button>
+  <div>
+    <p  id="area"></p>
+  </div>
+  <div class="canvas-container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <footer>
+    <small> &copy; 2022 phihash</small>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/dexie@3.0.2/dist/dexie.min.js"></script>
+<script type="module" src="src/question-data.js"></script>
+<script type="module"  src="src/index.js"></script>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: ["A型", "O型", "B型", "AB型", "S型", "Z型"],
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+        }]
+    },
+});
+</script>
+</body>
+</html>
