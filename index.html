@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Googleフォント読み込み -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,700&family=M+PLUS+1p:wght@500&display=swap" rel="stylesheet">
   <link rel="icon" href="src/favicon.PNG">
   <title>QuestionBox</title>
   <style>
       /* color:#4CAF50 ; */
+      /* font-family: 'Lato', sans-serif; */
+/* font-family: 'M PLUS 1p', sans-serif; */
     /* #795548 #5D4037  */
     .SiteWrapper{
       display: flex;
@@ -33,7 +35,7 @@
       background-color: #f1f1f1 ;
     }
     .site-title{
-      font-size:1.6rem;
+      font-size:2rem;
       font-family: 'Lato', sans-serif;
     }
     .canvas-container{
@@ -43,22 +45,51 @@
     .footer{
       color:#f1f1f1 ;
       background-color: #515355 ;
+      font-family: 'M PLUS 1p', sans-serif;
     }
+    .d-flex{
+      display: flex;
+    }
+    button{
+      cursor: pointer;
+    }
+    .question-text{
+      font-size: 1.5rem;
+      font-family: 'M PLUS 1p', sans-serif;
+
+    }
+    label{
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: 'M PLUS 1p', sans-serif;
+    }
+
   </style>
 </head>
 <body>
 <div class="SiteWrapper">
-  <header class="header">
-    <h1 class="site-title">QuestionBox</h1>
+  <header class="header d-flex">
+    <h1 class="site-title" tabindex="1">QuestionBox</h1>
+    <button>成績をみる</button>
   </header>
   <main>
-    <input type="text" id="name">
+    <p class="question-text">1+1はなんですか？</p>
+    <div class="answer-area">
+      <form action="">
+        <label><input name="i" type="radio"> 3</label>
+        <label><input name="i" type="radio"> 2</label>
+        <label><input name="i" type="radio"> 4</label>
+        <label><input name="i" type="radio"> 1</label>
+        <label><input name="i" type="radio"> 5</label>
+      </form>
+    </div>
+    <!-- <input type="text" id="name">
     <input type="text" id="comment">
     <button type="submit" id="submitButton">送信</button>
     <button id="showButton">表示</button>
     <div>
       <p  id="area"></p>
-    </div>
+    </div> -->
 
     <div class="canvas-container">
       <canvas id="myChart"></canvas>
@@ -66,7 +97,8 @@
   </main>
 
   <footer class="footer">
-    <small> &copy; 2022 phihash</small>
+    <a href="https://twitter.com/phihash" class="link-item">お問合せ</a>
+    <small class="copy"> &copy; 2022 QuestionBox</small>
   </footer>
 </div>
 </body>
