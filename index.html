@@ -11,8 +11,26 @@
   <link rel="icon" href="src/favicon.PNG">
   <title>QuestionBox</title>
   <style>
+      /* color:#4CAF50 ; */
+    /* #795548 #5D4037  */
+    .SiteWrapper{
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main{
+      flex:1;
+      overflow-x:hidden;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
     .header{
       height: 70px;
+      color:#5D4037 ;
+      background-color: #f1f1f1 ;
     }
     .site-title{
       font-size:1.6rem;
@@ -22,50 +40,60 @@
       width: 300px;
       height: 300px;
     }
+    .footer{
+      color:#f1f1f1 ;
+      background-color: #515355 ;
+    }
   </style>
 </head>
 <body>
+<div class="SiteWrapper">
   <header class="header">
     <h1 class="site-title">QuestionBox</h1>
   </header>
-  <input type="text" id="name">
-  <input type="text" id="comment">
-  <button type="submit" id="submitButton">送信</button>
-  <button id="showButton">表示</button>
-  <div>
-    <p  id="area"></p>
-  </div>
-  <div class="canvas-container">
-    <canvas id="myChart"></canvas>
-  </div>
-  <footer>
+  <main>
+    <input type="text" id="name">
+    <input type="text" id="comment">
+    <button type="submit" id="submitButton">送信</button>
+    <button id="showButton">表示</button>
+    <div>
+      <p  id="area"></p>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </main>
+
+  <footer class="footer">
     <small> &copy; 2022 phihash</small>
   </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</div>
+</body>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <script src="https://unpkg.com/dexie@3.0.2/dist/dexie.min.js"></script>
 <script type="module" src="src/question-data.js"></script>
 <script type="module"  src="src/index.js"></script>
 <script>
 const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: ["A型", "O型", "B型", "AB型", "S型", "Z型"],
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-        }]
-    },
-});
+// const myChart = new Chart(ctx, {
+//     type: 'pie',
+//     data: {
+//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+//         datasets: [{
+//             label: ["A型", "O型", "B型", "AB型", "S型", "Z型"],
+//             data: [12, 19, 3, 5, 2, 3],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)'
+//             ],
+//         }]
+//     },
+// });
 </script>
 </body>
 </html>
